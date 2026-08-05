@@ -23,6 +23,10 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: "Times New Roman", Times, serif;
       background-color: var(--bg-color);
@@ -38,8 +42,32 @@
 
     /* Header / Profile Section */
     header {
-      padding: 4rem 0 3rem;
+      padding: 2.5rem 0 3rem;
       border-bottom: 1px solid var(--border);
+    }
+
+    /* Navigation Links */
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: normal;
+      letter-spacing: normal;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.6;
+      text-decoration: underline;
     }
 
     .profile {
@@ -68,6 +96,7 @@
       font-size: 1.1rem;
       color: var(--text-muted);
       max-width: 650px;
+      font-weight: normal;
     }
 
     /* Portfolio Sections */
@@ -88,12 +117,13 @@
     }
 
     .subsection-title {
-      font-size: 1.25rem;
-      font-weight: 600;
+      font-size: 1.1rem;
+      font-weight: normal;
       margin: 1.5rem 0 1rem;
-      color: var(--accent);
+      color: var(--text-muted);
       border-bottom: 1px dashed var(--border);
       padding-bottom: 0.25rem;
+      letter-spacing: normal;
     }
 
     .subsection {
@@ -142,6 +172,12 @@
 
     /* Responsive Adjustments */
     @media (max-width: 640px) {
+      .nav-links {
+        justify-content: center;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+      }
+
       .profile {
         flex-direction: column;
         text-align: center;
@@ -162,6 +198,15 @@
 
   <div class="container">
     <!-- Profile / Intro Header -->
+    <header>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#3d-modeling">3D Modeling &amp; Rendering</a></li>
+          <li><a href="#gis-work">GIS Analysis</a></li>
+          <li><a href="#web-design">Web Design &amp; Development</a></li>
+        </ul>
+      </nav>
+
       <div class="profile">
         <img src="images/IMG_2194(1).jpg" alt="Profile Picture" class="profile-img">
         <div class="profile-text">
@@ -173,7 +218,7 @@
 
     <!-- Section 1: 3D Modelling and Rendering -->
     <section id="3d-modeling">
-      <h2 class="section-title">3D Modelling & Rendering</h2>
+      <h2 class="section-title">3D Modelling &amp; Rendering</h2>
       
       <!-- Subsection: Chualar, CA -->
       <div class="subsection">
@@ -230,21 +275,21 @@
     </section>
 
      <!-- Section 3: Web Design -->
-    <section id="3d-modeling">
-      <h2 class="section-title">Web Design & Development</h2>
+    <section id="web-design">
+      <h2 class="section-title">Web Design &amp; Development</h2>
       
       <!-- Subsection: Crandall Arambula -->
       <div class="subsection">
         <h3 class="subsection-title">Crandall Arambula</h3>
         <div class="grid">
           <div class="card">
-            <img src="images/Screenshot 2026-08-04 191849.png" alt="Chualar 3D Model 1" class="card-img">
+            <img src="images/Screenshot 2026-08-04 191849.png" alt="Crandall Arambula Web Design 1" class="card-img">
           </div>
           <div class="card">
-            <img src="images/Screenshot 2026-08-04 192953.png" alt="Chualar 3D Model 2" class="card-img">
+            <img src="images/Screenshot 2026-08-04 192953.png" alt="Crandall Arambula Web Design 2" class="card-img">
           </div>
           <div class="card">
-            <img src="images/Screenshot 2026-08-04 193118.png" alt="Chualar 3D Model 3" class="card-img">
+            <img src="images/Screenshot 2026-08-04 193118.png" alt="Crandall Arambula Web Design 3" class="card-img">
           </div>
         </div>
       </div>
