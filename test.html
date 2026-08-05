@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | 3D Modeling & GIS</title>
+  <style>
+    /* CSS Variables & Global Reset */
+    :root {
+      --bg-color: #FFFAF2;
+      --card-bg: #ffffff;
+      --text-main: #1a1a1a;
+      --text-muted: #666666;
+      --accent: #2b2b2b;
+      --border: #B8B3AB;
+      --max-width: 1100px;
+      --radius: 0px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Times New Roman", Times, serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* Header / Profile Section */
+    header {
+      padding: 4rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 0;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid var(--border);
+    }
+
+    .profile-text h1 {
+      font-size: 2.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .profile-text p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 650px;
+    }
+
+    /* Portfolio Sections */
+    section {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      letter-spacing: -0.01em;
+    }
+
+    .subsection-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 1.5rem 0 1rem;
+      color: var(--accent);
+      border-bottom: 1px dashed var(--border);
+      padding-bottom: 0.25rem;
+    }
+
+    .subsection {
+      margin-bottom: 2.5rem;
+    }
+
+    .subsection:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Image Grid Layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      background-color: #eee;
+    }
+
+    .card-content {
+      padding: 1.25rem;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    footer {
+      padding: 2.5rem 0;
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 640px) {
+      .profile {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+      }
+
+      .profile-text p {
+        margin: 0 auto;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Profile / Intro Header -->
+    <header>
+      <div class="profile">
+        <img src="images/IMG_2194(1).jpg" alt="Profile Picture" class="profile-img">
+        <div class="profile-text">
+          <h1>Susanna Arambula</h1>
+          <p>Portland based creative at Crandall Arambula, specializing in urban design visualization. Currently studying Architecture at Portland State University.</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: 3D Modelling and Rendering -->
+    <section id="3d-modeling">
+      <h2 class="section-title">3D Modelling & Rendering</h2>
+      
+      <!-- Subsection: Crescent City, CA -->
+      <div class="subsection">
+        <h3 class="subsection-title">Crescent City, CA</h3>
+        <div class="grid">
+          <div class="card">
+            <img src="images/3d-crescent-city-1.jpg" alt="Crescent City 3D Model 1" class="card-img">
+            <div class="card-content">
+              <h3 class="card-title">Project Title</h3>
+              <p class="card-desc">Brief description of the 3D model, software used, or rendering technique.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subsection: Chualar, CA -->
+      <div class="subsection">
+        <h3 class="subsection-title">Chualar, CA</h3>
+        <div class="grid">
+          <div class="card">
+            <img src="images/7.24.26 chualar export 8.jpg" alt="Chualar 3D Model 1" class="card-img">
+            <div class="card-content">
+              <h3 class="card-title">Project Title</h3>
+              <p class="card-desc">Brief description of the 3D model, software used, or rendering technique.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: GIS Work -->
+    <section id="gis-work">
+      <h2 class="section-title">GIS Work</h2>
+      
+      <!-- Subsection: Crescent City, CA -->
+      <div class="subsection">
+        <h3 class="subsection-title">Crescent City, CA</h3>
+        <div class="grid">
+          <div class="card">
+            <img src="images/gis-crescent-city-1.png" alt="Crescent City GIS Map 1" class="card-img">
+            <div class="card-content">
+              <h3 class="card-title">Spatial Map Title</h3>
+              <p class="card-desc">Brief explanation of spatial data, layer analysis, or cartographic design.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subsection: Chualar, CA -->
+      <div class="subsection">
+        <h3 class="subsection-title">Chualar, CA</h3>
+        <div class="grid">
+          <div class="card">
+            <img src="images/8.1.25 summary map.png" alt="Chualar GIS Map 1" class="card-img">
+            <div class="card-content">
+              <h3 class="card-title">Spatial Map Title</h3>
+              <p class="card-desc">Brief explanation of spatial data, layer analysis, or cartographic design.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 Susanna Arambula. All rights reserved.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
