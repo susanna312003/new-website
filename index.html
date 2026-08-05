@@ -384,6 +384,31 @@
       }
     });
   </script>
+<script>
+  (function generateFavicon() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 64;
+    canvas.height = 64;
+    const ctx = canvas.getContext('2d');
 
+    // Background matching site color
+    ctx.fillStyle = '#FFFAF2';
+    ctx.fillRect(0, 0, 64, 64);
+
+    // Initial letters matching body font
+    ctx.fillStyle = '#1A1A1A';
+    ctx.font = 'bold 36px "Times New Roman", Times, serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('SA', 32, 35);
+
+    // Inject favicon into <head>
+    const link = document.createElement('link');
+    link.rel = 'icon';
+    link.type = 'image/png';
+    link.href = canvas.toDataURL('image/png');
+    document.head.appendChild(link);
+  })();
+</script>
 </body>
 </html>
