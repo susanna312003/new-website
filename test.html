@@ -52,7 +52,7 @@
       width: 160px;
       height: 160px;
       border-radius: 0;
-      object-fit: cover;
+      object-fit: cover; /* Kept cover for profile avatar to keep it square */
       flex-shrink: 0;
       border: 2px solid var(--border);
     }
@@ -109,6 +109,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 2rem;
+      align-items: start; /* Prevents cards in the same row from stretching vertically */
     }
 
     .card {
@@ -126,8 +127,7 @@
 
     .card-img {
       width: 100%;
-      height: 220px;
-      object-fit: cover;
+      height: auto; /* Allows height to adapt based on natural aspect ratio */
       display: block;
       background-color: #eee;
     }
