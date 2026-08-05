@@ -395,6 +395,11 @@
     ctx.fillStyle = '#FFFAF2';
     ctx.fillRect(0, 0, 64, 64);
 
+    // Thin light gray border matching site styles
+    ctx.strokeStyle = '#B8B3AB';
+    ctx.lineWidth = 2; // Renders as ~1px thin border at scaled size
+    ctx.strokeRect(1, 1, 62, 62);
+
     // Initial letters matching body font
     ctx.fillStyle = '#1A1A1A';
     ctx.font = 'bold 36px "Times New Roman", Times, serif';
