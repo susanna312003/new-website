@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | 3D Modeling & GIS</title>
+  <title>Portfolio | 3D Modeling &amp; GIS</title>
   <style>
     /* CSS Variables & Global Reset */
     :root {
@@ -13,8 +13,22 @@
       --text-muted: #666666;
       --accent: #2b2b2b;
       --border: #B8B3AB;
+      --img-placeholder: #eee;
       --max-width: 1100px;
       --radius: 0px;
+    }
+
+    /* System Dark Mode Overrides */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #121212;
+        --card-bg: #1e1e1e;
+        --text-main: #f0f0f0;
+        --text-muted: #a0a0a0;
+        --accent: #e0e0e0;
+        --border: #333333;
+        --img-placeholder: #2a2a2a;
+      }
     }
 
     * {
@@ -169,14 +183,14 @@
 
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
     .card-img {
       width: 100%;
       height: auto;
       display: block;
-      background-color: #eee;
+      background-color: var(--img-placeholder);
       cursor: pointer;
     }
 
@@ -428,22 +442,23 @@
   </script>
   <script>
     (function generateFavicon() {
+      const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
       const canvas = document.createElement('canvas');
       canvas.width = 64;
       canvas.height = 64;
       const ctx = canvas.getContext('2d');
 
-      // Background matching site color
-      ctx.fillStyle = '#FFFAF2';
+      // Background color depending on theme
+      ctx.fillStyle = isDarkMode ? '#121212' : '#FFFAF2';
       ctx.fillRect(0, 0, 64, 64);
 
-      // Thin light gray border matching site styles
-      ctx.strokeStyle = '#B8B3AB';
+      // Border color depending on theme
+      ctx.strokeStyle = isDarkMode ? '#333333' : '#B8B3AB';
       ctx.lineWidth = 2;
       ctx.strokeRect(1, 1, 62, 62);
 
-      // Initial letters matching body font
-      ctx.fillStyle = '#1A1A1A';
+      // Text color depending on theme
+      ctx.fillStyle = isDarkMode ? '#F0F0F0' : '#1A1A1A';
       ctx.font = 'bold 36px "Times New Roman", Times, serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
