@@ -52,7 +52,7 @@
       width: 160px;
       height: 160px;
       border-radius: 0;
-      object-fit: cover;
+      object-fit: cover; /* Kept cover for profile avatar to keep it square */
       flex-shrink: 0;
       border: 2px solid var(--border);
     }
@@ -81,10 +81,27 @@
     }
 
     .section-title {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       font-weight: 600;
       margin-bottom: 2rem;
       letter-spacing: -0.01em;
+    }
+
+    .subsection-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 1.5rem 0 1rem;
+      color: var(--accent);
+      border-bottom: 1px dashed var(--border);
+      padding-bottom: 0.25rem;
+    }
+
+    .subsection {
+      margin-bottom: 2.5rem;
+    }
+
+    .subsection:last-child {
+      margin-bottom: 0;
     }
 
     /* Image Grid Layout */
@@ -92,6 +109,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 2rem;
+      align-items: start; /* Prevents cards in the same row from stretching vertically */
     }
 
     .card {
@@ -109,25 +127,9 @@
 
     .card-img {
       width: 100%;
-      height: 220px;
-      object-fit: cover;
+      height: auto; /* Allows height to adapt based on natural aspect ratio */
       display: block;
       background-color: #eee;
-    }
-
-    .card-content {
-      padding: 1.25rem;
-    }
-
-    .card-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-    }
-
-    .card-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
     }
 
     /* Footer */
@@ -160,12 +162,12 @@
 
   <div class="container">
     <!-- Profile / Intro Header -->
-    <header>
+    header>
       <div class="profile">
         <img src="images/IMG_2194(1).jpg" alt="Profile Picture" class="profile-img">
         <div class="profile-text">
           <h1>Susanna Arambula</h1>
-          <p>Portland based creative at Crandall Arambula, specializing in urban design visualization. Currently studying Architecture at Portland State University. </p>
+          <p>Portland based creative at Crandall Arambula, specializing in urban design visualization. Currently studying Architecture at Portland State University.</p>
         </div>
       </div>
     </header>
@@ -173,64 +175,58 @@
     <!-- Section 1: 3D Modelling and Rendering -->
     <section id="3d-modeling">
       <h2 class="section-title">3D Modelling & Rendering</h2>
-      <div class="grid">
-        
-        <div class="card">
-          <img src="images/7.24.26 chualar export 8.jpg" alt="3D Model Project 1" class="card-img">
-          <div class="card-content">
-            <h3 class="card-title">Project Title 1</h3>
-            <p class="card-desc">Brief description of the 3D model, software used, or rendering technique.</p>
+      
+      <!-- Subsection: Chualar, CA -->
+      <div class="subsection">
+        <h3 class="subsection-title">Chualar, CA</h3>
+        <div class="grid">
+          <div class="card">
+            <img src="images/7.24.26 chualar export 8.jpg" alt="Chualar 3D Model 1" class="card-img">
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/600x400" alt="Chualar 3D Model 2" class="card-img">
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/600x400" alt="Chualar 3D Model 3" class="card-img">
           </div>
         </div>
-
-        <div class="card">
-          <img src="images/3d-project2.jpg" alt="3D Model Project 2" class="card-img">
-          <div class="card-content">
-            <h3 class="card-title">Project Title 2</h3>
-            <p class="card-desc">Brief description of the 3D model, software used, or rendering technique.</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="images/3d-project3.jpg" alt="3D Model Project 3" class="card-img">
-          <div class="card-content">
-            <h3 class="card-title">Project Title 3</h3>
-            <p class="card-desc">Brief description of the 3D model, software used, or rendering technique.</p>
-          </div>
-        </div>
-
       </div>
     </section>
 
-    <!-- Section 2: GIS Work -->
+    <!-- Section 2: GIS Mapping -->
     <section id="gis-work">
       <h2 class="section-title">GIS Work</h2>
-      <div class="grid">
-
-        <div class="card">
-          <img src="images/8.1.25 summary map.png" alt="GIS Project 1" class="card-img">
-          <div class="card-content">
-            <h3 class="card-title">Spatial Map Title 1</h3>
-            <p class="card-desc">Brief explanation of spatial data, layer analysis, or cartographic design.</p>
+      
+      <!-- Subsection: Crescent City, CA -->
+      <div class="subsection">
+        <h3 class="subsection-title">Crescent City, CA</h3>
+        <div class="grid">
+          <div class="card">
+            <img src="images/8.1.25 summary map.png" alt="Crescent City GIS Map 1" class="card-img">
+          </div>
+          <div class="card">
+            <img src="images/7.15.25 Development potential.png" alt="Crescent City GIS Map 2" class="card-img">
+          </div>
+          <div class="card">
+            <img src="images/Commercial Analysis.png" alt="Crescent City GIS Map 3" class="card-img">
           </div>
         </div>
+      </div>
 
-        <div class="card">
-          <img src="images/gis-project2.jpg" alt="GIS Project 2" class="card-img">
-          <div class="card-content">
-            <h3 class="card-title">Spatial Map Title 2</h3>
-            <p class="card-desc">Brief explanation of spatial data, layer analysis, or cartographic design.</p>
+      <!-- Subsection: Chualar, CA -->
+      <div class="subsection">
+        <h3 class="subsection-title">Chualar, CA</h3>
+        <div class="grid">
+          <div class="card">
+            <img src="images/11.26.25 Existing Community Plan Development Capacity.png" alt="Chualar GIS Map 1" class="card-img">
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/600x400" alt="Chualar GIS Map 2" class="card-img">
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/600x400" alt="Chualar GIS Map 3" class="card-img">
           </div>
         </div>
-
-        <div class="card">
-          <img src="images/gis-project3.jpg" alt="GIS Project 3" class="card-img">
-          <div class="card-content">
-            <h3 class="card-title">Spatial Map Title 3</h3>
-            <p class="card-desc">Brief explanation of spatial data, layer analysis, or cartographic design.</p>
-          </div>
-        </div>
-
       </div>
     </section>
 
