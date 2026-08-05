@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | 3D Modeling & GIS</title>
+  <title>Portfolio | 3D Modeling &amp; GIS</title>
   <style>
     /* CSS Variables & Global Reset */
     :root {
@@ -13,8 +13,22 @@
       --text-muted: #666666;
       --accent: #2b2b2b;
       --border: #B8B3AB;
+      --img-placeholder: #eee;
       --max-width: 1100px;
       --radius: 0px;
+    }
+
+    /* System Dark Mode Overrides */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #121212;
+        --card-bg: #1e1e1e;
+        --text-main: #f0f0f0;
+        --text-muted: #a0a0a0;
+        --accent: #e0e0e0;
+        --border: #333333;
+        --img-placeholder: #2a2a2a;
+      }
     }
 
     * {
@@ -40,17 +54,14 @@
       margin: 0 auto;
     }
 
-    /* Header / Profile Section */
+    /* Navigation Links */
     header {
-      padding: 2.5rem 0 3rem;
-      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 1.5rem;
     }
 
-    /* Navigation Links */
     .nav-links {
       display: flex;
       gap: 2rem;
-      margin-bottom: 2.5rem;
       padding-bottom: 1rem;
       border-bottom: 1px solid var(--border);
       list-style: none;
@@ -70,15 +81,32 @@
       text-decoration: underline;
     }
 
-    .profile {
+    /* Main Layout Grid (Content + Sidebar) */
+    .layout-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 3rem;
+      align-items: start;
+      padding-top: 1rem;
+    }
+
+    /* Profile Sidebar */
+    .profile-sidebar {
+      position: sticky;
+      top: 2rem;
       display: flex;
-      align-items: center;
-      gap: 2.5rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding-left: 2rem;
+      border-left: 1px solid var(--border);
     }
 
     .profile-img {
-      width: 160px;
-      height: 160px;
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      aspect-ratio: 1 / 1;
       border-radius: 0;
       object-fit: cover;
       flex-shrink: 0;
@@ -86,26 +114,29 @@
     }
 
     .profile-text h1 {
-      font-size: 2.25rem;
+      font-size: 1.85rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
       letter-spacing: -0.02em;
     }
 
     .profile-text p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: var(--text-muted);
-      max-width: 650px;
       font-weight: normal;
     }
 
-    /* Portfolio Sections */
-    section {
-      padding: 3.5rem 0;
+    /* Portfolio Content Sections */
+    .main-content section {
+      padding: 2.5rem 0;
       border-bottom: 1px solid var(--border);
     }
 
-    section:last-of-type {
+    .main-content section:first-of-type {
+      padding-top: 0;
+    }
+
+    .main-content section:last-of-type {
       border-bottom: none;
     }
 
@@ -137,8 +168,8 @@
     /* Image Grid Layout */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
       align-items: start;
     }
 
@@ -152,14 +183,14 @@
 
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
     .card-img {
       width: 100%;
       height: auto;
       display: block;
-      background-color: #eee;
+      background-color: var(--img-placeholder);
       cursor: pointer;
     }
 
@@ -212,9 +243,33 @@
       text-align: center;
       font-size: 0.875rem;
       color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
     }
 
     /* Responsive Adjustments */
+    @media (max-width: 850px) {
+      .layout-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-sidebar {
+        order: -1;
+        position: static;
+        padding-left: 0;
+        border-left: none;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 2rem;
+        margin-bottom: 1rem;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .profile-img {
+        width: 120px;
+      }
+    }
+
     @media (max-width: 640px) {
       .nav-links {
         justify-content: center;
@@ -222,14 +277,10 @@
         flex-wrap: wrap;
       }
 
-      .profile {
+      .profile-sidebar {
         flex-direction: column;
         text-align: center;
-        gap: 1.5rem;
-      }
-
-      .profile-text p {
-        margin: 0 auto;
+        align-items: center;
       }
 
       .grid {
@@ -241,7 +292,6 @@
 <body>
 
   <div class="container">
-    <!-- Profile / Intro Header -->
     <header>
       <nav>
         <ul class="nav-links">
@@ -250,94 +300,100 @@
           <li><a href="#web-design">Web Design &amp; Development</a></li>
         </ul>
       </nav>
+    </header>
 
-      <div class="profile">
+    <div class="layout-wrapper">
+      <!-- Main Content (Left Column) -->
+      <main class="main-content">
+        <!-- Section 1: 3D Modelling and Rendering -->
+        <section id="3d-modeling">
+          <h2 class="section-title">3D Modelling &amp; Rendering</h2>
+          
+          <!-- Subsection: Chualar, CA -->
+          <div class="subsection">
+            <h3 class="subsection-title">Chualar, CA</h3>
+            <div class="grid">
+              <div class="card">
+                <img src="images/7.24.26 chualar export 8.jpg" alt="Chualar 3D Model 1" class="card-img">
+              </div>
+              <div class="card">
+                <img src="images/chualar sketchup export 16.png" alt="Chualar 3D Model 2" class="card-img">
+              </div>
+              <div class="card">
+                <img src="images/7.24.26 chualar export 6.jpg" alt="Chualar 3D Model 3" class="card-img">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: GIS Mapping -->
+        <section id="gis-work">
+          <h2 class="section-title">GIS Analysis</h2>
+          
+          <!-- Subsection: Crescent City, CA -->
+          <div class="subsection">
+            <h3 class="subsection-title">Crescent City, CA</h3>
+            <div class="grid">
+              <div class="card">
+                <img src="images/8.1.25 summary map.png" alt="Crescent City GIS Map 1" class="card-img">
+              </div>
+              <div class="card">
+                <img src="images/7.15.25 Development potential.png" alt="Crescent City GIS Map 2" class="card-img">
+              </div>
+              <div class="card">
+                <img src="images/Commercial Analysis.png" alt="Crescent City GIS Map 3" class="card-img">
+              </div>
+            </div>
+          </div>
+
+          <!-- Subsection: Chualar, CA -->
+          <div class="subsection">
+            <h3 class="subsection-title">Chualar, CA</h3>
+            <div class="grid">
+              <div class="card">
+                <img src="images/11.26.25 Existing Community Plan Development Capacity.png" alt="Chualar GIS Map 1" class="card-img">
+              </div>
+              <div class="card">
+                <img src="11.26.25 Subareas.png" alt="Chualar GIS Map 2" class="card-img">
+              </div>
+              <div class="card">
+                <img src="11.3.25 updated existing residential land use.png" alt="Chualar GIS Map 3" class="card-img">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Web Design -->
+        <section id="web-design">
+          <h2 class="section-title">Web Design &amp; Development</h2>
+          
+          <!-- Subsection: Crandall Arambula -->
+          <div class="subsection">
+            <h3 class="subsection-title">Crandall Arambula</h3>
+            <div class="grid">
+              <div class="card">
+                <img src="images/Screenshot 2026-08-04 191849.png" alt="Crandall Arambula Web Design 1" class="card-img">
+              </div>
+              <div class="card">
+                <img src="images/Screenshot 2026-08-04 192953.png" alt="Crandall Arambula Web Design 2" class="card-img">
+              </div>
+              <div class="card">
+                <img src="images/Screenshot 2026-08-04 193118.png" alt="Crandall Arambula Web Design 3" class="card-img">
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Profile Sidebar (Right Column) -->
+      <aside class="profile-sidebar">
         <img src="images/IMG_2194(1).jpg" alt="Profile Picture" class="profile-img">
         <div class="profile-text">
           <h1>Susanna Arambula</h1>
           <p>Portland based creative at Crandall Arambula, specializing in urban design visualization. Currently studying Architecture at Portland State University.</p>
         </div>
-      </div>
-    </header>
-
-    <!-- Section 1: 3D Modelling and Rendering -->
-    <section id="3d-modeling">
-      <h2 class="section-title">3D Modelling &amp; Rendering</h2>
-      
-      <!-- Subsection: Chualar, CA -->
-      <div class="subsection">
-        <h3 class="subsection-title">Chualar, CA</h3>
-        <div class="grid">
-          <div class="card">
-            <img src="images/7.24.26 chualar export 8.jpg" alt="Chualar 3D Model 1" class="card-img">
-          </div>
-          <div class="card">
-            <img src="images/chualar sketchup export 16.png" alt="Chualar 3D Model 2" class="card-img">
-          </div>
-          <div class="card">
-            <img src="images/7.24.26 chualar export 6.jpg" alt="Chualar 3D Model 3" class="card-img">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 2: GIS Mapping -->
-    <section id="gis-work">
-      <h2 class="section-title">GIS Analysis</h2>
-      
-      <!-- Subsection: Crescent City, CA -->
-      <div class="subsection">
-        <h3 class="subsection-title">Crescent City, CA</h3>
-        <div class="grid">
-          <div class="card">
-            <img src="images/8.1.25 summary map.png" alt="Crescent City GIS Map 1" class="card-img">
-          </div>
-          <div class="card">
-            <img src="images/7.15.25 Development potential.png" alt="Crescent City GIS Map 2" class="card-img">
-          </div>
-          <div class="card">
-            <img src="images/Commercial Analysis.png" alt="Crescent City GIS Map 3" class="card-img">
-          </div>
-        </div>
-      </div>
-
-      <!-- Subsection: Chualar, CA -->
-      <div class="subsection">
-        <h3 class="subsection-title">Chualar, CA</h3>
-        <div class="grid">
-          <div class="card">
-            <img src="images/11.26.25 Existing Community Plan Development Capacity.png" alt="Chualar GIS Map 1" class="card-img">
-          </div>
-          <div class="card">
-            <img src="11.26.25 Subareas.png" alt="Chualar GIS Map 2" class="card-img">
-          </div>
-          <div class="card">
-            <img src="11.3.25 updated existing residential land use.png" alt="Chualar GIS Map 3" class="card-img">
-          </div>
-        </div>
-      </div>
-    </section>
-
-     <!-- Section 3: Web Design -->
-    <section id="web-design">
-      <h2 class="section-title">Web Design &amp; Development</h2>
-      
-      <!-- Subsection: Crandall Arambula -->
-      <div class="subsection">
-        <h3 class="subsection-title">Crandall Arambula</h3>
-        <div class="grid">
-          <div class="card">
-            <img src="images/Screenshot 2026-08-04 191849.png" alt="Crandall Arambula Web Design 1" class="card-img">
-          </div>
-          <div class="card">
-            <img src="images/Screenshot 2026-08-04 192953.png" alt="Crandall Arambula Web Design 2" class="card-img">
-          </div>
-          <div class="card">
-            <img src="images/Screenshot 2026-08-04 193118.png" alt="Crandall Arambula Web Design 3" class="card-img">
-          </div>
-        </div>
-      </div>
-    </section>
+      </aside>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -384,36 +440,37 @@
       }
     });
   </script>
-<script>
-  (function generateFavicon() {
-    const canvas = document.createElement('canvas');
-    canvas.width = 64;
-    canvas.height = 64;
-    const ctx = canvas.getContext('2d');
+  <script>
+    (function generateFavicon() {
+      const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const canvas = document.createElement('canvas');
+      canvas.width = 64;
+      canvas.height = 64;
+      const ctx = canvas.getContext('2d');
 
-    // Background matching site color
-    ctx.fillStyle = '#FFFAF2';
-    ctx.fillRect(0, 0, 64, 64);
+      // Background color depending on theme
+      ctx.fillStyle = isDarkMode ? '#121212' : '#FFFAF2';
+      ctx.fillRect(0, 0, 64, 64);
 
-    // Thin light gray border matching site styles
-    ctx.strokeStyle = '#B8B3AB';
-    ctx.lineWidth = 2; // Renders as ~1px thin border at scaled size
-    ctx.strokeRect(1, 1, 62, 62);
+      // Border color depending on theme
+      ctx.strokeStyle = isDarkMode ? '#333333' : '#B8B3AB';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(1, 1, 62, 62);
 
-    // Initial letters matching body font
-    ctx.fillStyle = '#1A1A1A';
-    ctx.font = 'bold 36px "Times New Roman", Times, serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('SA', 32, 35);
+      // Text color depending on theme
+      ctx.fillStyle = isDarkMode ? '#F0F0F0' : '#1A1A1A';
+      ctx.font = 'bold 36px "Times New Roman", Times, serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('SA', 32, 35);
 
-    // Inject favicon into <head>
-    const link = document.createElement('link');
-    link.rel = 'icon';
-    link.type = 'image/png';
-    link.href = canvas.toDataURL('image/png');
-    document.head.appendChild(link);
-  })();
-</script>
+      // Inject favicon into <head>
+      const link = document.createElement('link');
+      link.rel = 'icon';
+      link.type = 'image/png';
+      link.href = canvas.toDataURL('image/png');
+      document.head.appendChild(link);
+    })();
+  </script>
 </body>
 </html>
