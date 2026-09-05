@@ -3,474 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | 3D Modeling &amp; GIS</title>
+  <title>Landing Page</title>
   <style>
-    /* CSS Variables & Global Reset */
-    :root {
-      --bg-color: #FFFAF2;
-      --card-bg: #ffffff;
-      --text-main: #1a1a1a;
-      --text-muted: #666666;
-      --accent: #2b2b2b;
-      --border: #B8B3AB;
-      --img-placeholder: #eee;
-      --max-width: 1100px;
-      --radius: 0px;
-    }
-
-    /* System Dark Mode Overrides */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg-color: #121212;
-        --card-bg: #1e1e1e;
-        --text-main: #f0f0f0;
-        --text-muted: #a0a0a0;
-        --accent: #e0e0e0;
-        --border: #333333;
-        --img-placeholder: #2a2a2a;
-      }
-    }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      font-family: "Times New Roman", Times, serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.6;
-      padding: 0 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
     .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-
-    /* Navigation Links */
-    header {
-      padding: 2.5rem 0 1.5rem;
-    }
-
-    .nav-links {
       display: flex;
-      gap: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--border);
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: normal;
-      letter-spacing: normal;
-      transition: opacity 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      opacity: 0.6;
-      text-decoration: underline;
-    }
-
-    /* Main Layout Grid (Content + Sidebar) */
-    .layout-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 280px;
-      gap: 3rem;
-      align-items: start;
-      padding-top: 1rem;
-    }
-
-    /* Profile Sidebar */
-    .profile-sidebar {
-      position: sticky;
-      top: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.5rem;
-      padding-left: 2rem;
-      border-left: 1px solid var(--border);
-    }
-
-    .profile-img {
-      width: 100%;
-      max-width: 200px;
-      height: auto;
-      aspect-ratio: 1 / 1;
-      border-radius: 0;
-      object-fit: cover;
-      flex-shrink: 0;
-      border: 2px solid var(--border);
-    }
-
-    .profile-text h1 {
-      font-size: 1.85rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
-    }
-
-    .profile-text p {
-      font-size: 1rem;
-      color: var(--text-muted);
-      font-weight: normal;
-    }
-
-    /* Portfolio Content Sections */
-    .main-content section {
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .main-content section:first-of-type {
-      padding-top: 0;
-    }
-
-    .main-content section:last-of-type {
-      border-bottom: none;
-    }
-
-    .section-title {
-      font-size: 1.75rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-      letter-spacing: -0.01em;
-    }
-
-    .subsection-title {
-      font-size: 1.1rem;
-      font-weight: normal;
-      margin: 1.5rem 0 1rem;
-      color: var(--text-muted);
-      border-bottom: 1px dashed var(--border);
-      padding-bottom: 0.25rem;
-      letter-spacing: normal;
-    }
-
-    .subsection {
-      margin-bottom: 2.5rem;
-    }
-
-    .subsection:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Image Grid Layout */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1.5rem;
-      align-items: start;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .card-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      background-color: var(--img-placeholder);
-      cursor: pointer;
-    }
-
-    /* Lightbox Modal Styles */
-    .lightbox-modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.85);
-      justify-content: center;
+      flex-direction: row;
       align-items: center;
+      justify-content: center;
+      gap: 60px;
+      width: 90%;
+      max-width: 1200px;
       padding: 20px;
     }
 
-    .lightbox-modal.active {
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card-link:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Professional Work Card */
+    .card-rectangular {
+      width: 450px;
+      height: 300px;
+      border: 1px solid #000000;
+      position: relative;
+      overflow: hidden;
       display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
     }
 
-    .lightbox-content {
-      max-width: 90%;
-      max-height: 90vh;
-      object-fit: contain;
-      border: 2px solid #ffffff;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
-    }
-
-    .lightbox-close {
+    .card-rectangular img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       position: absolute;
-      top: 20px;
-      right: 30px;
-      color: #ffffff;
-      font-size: 40px;
-      font-weight: bold;
-      cursor: pointer;
-      user-select: none;
-      line-height: 1;
+      top: 0;
+      left: 0;
+      z-index: 1;
     }
 
-    .lightbox-close:hover {
-      color: #cccccc;
-    }
-
-    /* Footer */
-    footer {
-      padding: 2.5rem 0;
+    .card-rectangular .overlay-text {
+      position: relative;
+      z-index: 2;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #000000;
+      background-color: rgba(255, 255, 255, 0.6);
+      padding: 6px 16px;
       text-align: center;
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border);
-      margin-top: 2rem;
     }
 
-    /* Responsive Adjustments */
-    @media (max-width: 850px) {
-      .layout-wrapper {
-        grid-template-columns: 1fr;
-      }
-
-      .profile-sidebar {
-        order: -1;
-        position: static;
-        padding-left: 0;
-        border-left: none;
-        border-bottom: 1px solid var(--border);
-        padding-bottom: 2rem;
-        margin-bottom: 1rem;
-        flex-direction: row;
-        align-items: center;
-      }
-
-      .profile-img {
-        width: 120px;
-      }
+    /* Personal Creative Endeavors Card */
+    .card-oval {
+      width: 480px;
+      height: 300px;
+      border: 1px solid #000000;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
     }
 
-    @media (max-width: 640px) {
-      .nav-links {
-        justify-content: center;
-        gap: 1.25rem;
-        flex-wrap: wrap;
-      }
-
-      .profile-sidebar {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
+    .card-oval img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
     }
-  </style>
-</head>
-<body>
 
-  <div class="container">
-    <header>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#3d-modeling">3D Modeling &amp; Rendering</a></li>
-          <li><a href="#gis-work">GIS Analysis</a></li>
-          <li><a href="#web-design">Web Design &amp; Development</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <div class="layout-wrapper">
-      <!-- Main Content (Left Column) -->
-      <main class="main-content">
-        <!-- Section 1: 3D Modelling and Rendering -->
-        <section id="3d-modeling">
-          <h2 class="section-title">3D Modelling &amp; Rendering</h2>
-          
-          <!-- Subsection: Chualar, CA -->
-          <div class="subsection">
-            <h3 class="subsection-title">Chualar, CA</h3>
-            <div class="grid">
-              <div class="card">
-                <img src="images/7.24.26 chualar export 8.jpg" alt="Chualar 3D Model 1" class="card-img">
-              </div>
-              <div class="card">
-                <img src="images/chualar sketchup export 16.png" alt="Chualar 3D Model 2" class="card-img">
-              </div>
-              <div class="card">
-                <img src="images/7.24.26 chualar export 6.jpg" alt="Chualar 3D Model 3" class="card-img">
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Section 2: GIS Mapping -->
-        <section id="gis-work">
-          <h2 class="section-title">GIS Analysis</h2>
-          
-          <!-- Subsection: Crescent City, CA -->
-          <div class="subsection">
-            <h3 class="subsection-title">Crescent City, CA</h3>
-            <div class="grid">
-              <div class="card">
-                <img src="images/8.1.25 summary map.png" alt="Crescent City GIS Map 1" class="card-img">
-              </div>
-              <div class="card">
-                <img src="images/7.15.25 Development potential.png" alt="Crescent City GIS Map 2" class="card-img">
-              </div>
-              <div class="card">
-                <img src="images/Commercial Analysis.png" alt="Crescent City GIS Map 3" class="card-img">
-              </div>
-            </div>
-          </div>
-
-          <!-- Subsection: Chualar, CA -->
-          <div class="subsection">
-            <h3 class="subsection-title">Chualar, CA</h3>
-            <div class="grid">
-              <div class="card">
-                <img src="images/11.26.25 Existing Community Plan Development Capacity.png" alt="Chualar GIS Map 1" class="card-img">
-              </div>
-              <div class="card">
-                <img src="11.26.25 Subareas.png" alt="Chualar GIS Map 2" class="card-img">
-              </div>
-              <div class="card">
-                <img src="11.3.25 updated existing residential land use.png" alt="Chualar GIS Map 3" class="card-img">
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Section 3: Web Design -->
-        <section id="web-design">
-          <h2 class="section-title">Web Design &amp; Development</h2>
-          
-          <!-- Subsection: Crandall Arambula -->
-          <div class="subsection">
-            <h3 class="subsection-title">Crandall Arambula</h3>
-            <div class="grid">
-              <div class="card">
-                <img src="images/Screenshot 2026-08-04 191849.png" alt="Crandall Arambula Web Design 1" class="card-img">
-              </div>
-              <div class="card">
-                <img src="images/Screenshot 2026-08-04 192953.png" alt="Crandall Arambula Web Design 2" class="card-img">
-              </div>
-              <div class="card">
-                <img src="images/Screenshot 2026-08-04 193118.png" alt="Crandall Arambula Web Design 3" class="card-img">
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <!-- Profile Sidebar (Right Column) -->
-      <aside class="profile-sidebar">
-        <img src="images/IMG_2194(1).jpg" alt="Profile Picture" class="profile-img">
-        <div class="profile-text">
-          <h1>Susanna Arambula</h1>
-          <p>Portland based creative at Crandall Arambula, specializing in urban design visualization. Currently studying Architecture at Portland State University.</p>
-        </div>
-      </aside>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2026 Susanna Arambula. All rights reserved.</p>
-    </footer>
-  </div>
-
-  <!-- Lightbox Overlay -->
-  <div id="lightbox" class="lightbox-modal">
-    <span class="lightbox-close">&times;</span>
-    <img class="lightbox-content" id="lightbox-img" alt="Enlarged view">
-  </div>
-
-  <script>
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn = document.querySelector('.lightbox-close');
-
-    // Attach click listeners to all card images
-    document.querySelectorAll('.card-img').forEach(img => {
-      img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.classList.add('active');
-      });
-    });
-
-    // Close lightbox when clicking the X button
-    closeBtn.addEventListener('click', () => {
-      lightbox.classList.remove('active');
-    });
-
-    // Close lightbox when clicking outside the image
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) {
-        lightbox.classList.remove('active');
-      }
-    });
-
-    // Close lightbox on pressing the Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-        lightbox.classList.remove('active');
-      }
-    });
-  </script>
-  <script>
-    (function generateFavicon() {
-      const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const canvas = document.createElement('canvas');
-      canvas.width = 64;
-      canvas.height = 64;
-      const ctx = canvas.getContext('2d');
-
-      // Background color depending on theme
-      ctx.fillStyle = isDarkMode ? '#121212' : '#FFFAF2';
-      ctx.fillRect(0, 0, 64, 64);
-
-      // Border color depending on theme
-      ctx.strokeStyle = isDarkMode ? '#333333' : '#B8B3AB';
-      ctx.lineWidth = 2;
-      ctx.strokeRect(1, 1, 62, 62);
-
-      // Text color depending on theme
-      ctx.fillStyle = isDarkMode ? '#F0F0F0' : '#1A1A1A';
-      ctx.font = 'bold 36px "Times New Roman", Times, serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText('SA', 32, 35);
-
-      // Inject favicon into <head>
-      const link = document.createElement('link');
-      link.rel = 'icon';
-      link.type = 'image/png';
-      link.href = canvas.toDataURL('image/png');
-      document.head.appendChild(link);
-    })();
-  </script>
-</body>
-</html>
+    .card-oval .overlay-text {
+      position: relative;
+      z-index: 2;
+      font-size: 1
