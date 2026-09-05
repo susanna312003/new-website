@@ -35,7 +35,7 @@
       text-decoration: none;
       color: inherit;
       display: block;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: transform 0.25s ease;
     }
 
     .card-link:hover {
@@ -103,4 +103,22 @@
     .card-oval .overlay-text {
       position: relative;
       z-index: 2;
-      font-size: 1
+      font-size: 1.5rem;
+      font-family: "Comic Sans MS", "Chalkboard SE", "Comic Neue", cursive, sans-serif;
+      color: #000000;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .card-rectangular,
+      .card-oval {
+        width: 100%;
+        max-width: 400px;
+        height: 260px;
