@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,6 +43,20 @@
       transform: translateY(-5px);
     }
 
+    /* Shared Overlay Pseudo-element for Images */
+    .card-rectangular::after,
+    .card-oval::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white overlay */
+      z-index: 2;
+      pointer-events: none;
+    }
+
     /* Professional Work Card */
     .card-rectangular {
       width: 450px;
@@ -67,12 +82,10 @@
 
     .card-rectangular .overlay-text {
       position: relative;
-      z-index: 2;
+      z-index: 3;
       font-size: 1.8rem;
       font-weight: 500;
       color: #000000;
-      background-color: rgba(255, 255, 255, 0.6);
-      padding: 6px 16px;
       text-align: center;
     }
 
@@ -102,7 +115,7 @@
 
     .card-oval .overlay-text {
       position: relative;
-      z-index: 2;
+      z-index: 3;
       font-size: 1.5rem;
       font-family: "Comic Sans MS", "Chalkboard SE", "Comic Neue", cursive, sans-serif;
       color: #000000;
@@ -131,7 +144,7 @@
   <main class="container">
     <a href="professional-work.html" class="card-link">
       <div class="card-rectangular">
-        <img src="images/7.24.26 chualar export 6.jpg">
+        <img src="images/7.24.26 chualar export 6.jpg" alt="Professional Work Background">
         <span class="overlay-text">professional work</span>
       </div>
     </a>
@@ -146,3 +159,5 @@
 
 </body>
 </html>
+
+```
