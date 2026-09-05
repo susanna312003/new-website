@@ -1,10 +1,15 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Landing Page</title>
+  
+  <!-- Google Fonts Preconnect & Import -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&family=Special+Elite&display=swap" rel="stylesheet">
+
   <style>
     * {
       box-sizing: border-box;
@@ -55,6 +60,19 @@
       background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white overlay */
       z-index: 2;
       pointer-events: none;
+    }
+
+    /* Utility Font Classes */
+    .jacques-francois-shadow-regular {
+      font-family: "Jacques Francois Shadow", serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .special-elite-regular {
+      font-family: "Special Elite", system-ui;
+      font-weight: 400;
+      font-style: normal;
     }
 
     /* Professional Work Card */
@@ -151,7 +169,7 @@
 
     <a href="personal-creative.html" class="card-link">
       <div class="card-oval">
-        <img src="images/Screenshot 2026-09-05 103240.png">
+        <img src="images/Screenshot 2026-09-05 103240.png" alt="Personal Creative Endeavors Background">
         <span class="overlay-text">personal creative endeavors</span>
       </div>
     </a>
@@ -159,5 +177,3 @@
 
 </body>
 </html>
-
-```
